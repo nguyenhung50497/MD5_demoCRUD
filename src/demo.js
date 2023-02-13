@@ -40,7 +40,7 @@ class Test1 extends Component {
         })
         this.setState(state => {
             return {
-                isShow: !state.isShow
+                isShow: true
             }
         })
     }
@@ -56,7 +56,7 @@ class Test1 extends Component {
                 state,
                 inName: '',
                 inAge: '',
-                isShow: !state.isShow
+                isShow: false
             }
         })
     }
@@ -67,8 +67,8 @@ class Test1 extends Component {
                 {this.state.list.map((item, ind) => (
                     <>
                         <h1 key={ind}>name: {item.name} - age: {item.age}</h1>
+                        <button value={ind} key={ind} onClick={(e) => {this.showValueEdit(e)}}>Edit</button>
                         {!this.state.isShow && <>
-                            <button value={ind} key={ind} onClick={(e) => {this.showValueEdit(e)}}>Edit</button>
                             <button key={ind} onClick={(e) => {
                                 this.setState( state => {
                                     let oldList = [...state.list];
