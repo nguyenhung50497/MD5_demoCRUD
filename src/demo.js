@@ -26,7 +26,7 @@ class Test1 extends Component {
             }
         })
     }
-    chang = (e) => {
+    change = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
     showValueEdit = (e) => {
@@ -35,7 +35,6 @@ class Test1 extends Component {
             if (ind === +a) {
                 this.setState({inName: item.name})
                 this.setState({inAge: item.age})
-                this.setState({name: item.name})
                 this.setState({ind: a})
             }
         })
@@ -47,11 +46,8 @@ class Test1 extends Component {
     }
     edit = () => {
         this.setState((state) => {
-            console.log(state.ind)
             state.list.map((item, ind) => {
-                console.log(ind)
                 if (ind === +state.ind) {
-                    console.log(item)
                     item.name = state.inName
                     item.age = state.inAge
                 }
@@ -87,8 +83,8 @@ class Test1 extends Component {
                     </>
                 ))}
                 <br/>
-                <input type="text" name={"inName"} value={this.state.inName} onChange={this.chang}/>
-                <input type="text" name={"inAge"} value={this.state.inAge} onChange={this.chang}/>
+                <input type="text" name={"inName"} value={this.state.inName} onChange={this.change}/>
+                <input type="text" name={"inAge"} value={this.state.inAge} onChange={this.change}/>
                 {!this.state.isShow && <button onClick={this.add}>SAVE</button>}
                 {this.state.isShow && <button onClick={this.edit}>Edit</button>}
                 <br/>
